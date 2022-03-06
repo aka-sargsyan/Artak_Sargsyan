@@ -111,27 +111,36 @@ The crownless again shall be king.'''
 
 # Ֆունկցիան հետևյալ տեսքն ունի
 
-
 # def make_chocolate(small, big, goal):
-#     small *= 1000
-#     big *= 1000
-#     goal *= 1000
-#     if goal > small:
-#         return -1
-#     elif big // goal == big / goal and small // goal == small / goal:
-#         return big / goal + small / goal
+#     if goal // 5 < big and goal % 5 < small:
+#         return print(goal % 5)
 #     else:
 #         return -1
 #
-#     #  can it work in this version
 #
-#     # if big // goal == big / goal and small // goal == small / goal:
-#     #     return big / goal + small / goal
-#     # else:
-#     #     return -1
-#
-#
-# print(make_chocolate(1, 5, 0.3))
+# make_chocolate(3, 2, 9)
+
+
+def make_chocolate(small, big, goal):
+    small *= 1000
+    big *= 1000
+    goal *= 1000
+    if goal > small:
+        return -1
+    elif big // goal == big / goal and small // goal == small / goal:
+        return big / goal + small / goal
+    else:
+        return -1
+
+    #  can it work in this version
+
+    # if big // goal == big / goal and small // goal == small / goal:
+    #     return big / goal + small / goal
+    # else:
+    #     return -1
+
+
+print(make_chocolate(1, 5, 0.3))
 
 # 6. Given three ints, a b c, return True if one of b or c is "close" (differing from a by at most 1), while the other
 # is "far", differing from both other values by 2 or more. Return False otherwise.

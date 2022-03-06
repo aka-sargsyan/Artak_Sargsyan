@@ -111,6 +111,17 @@ The crownless again shall be king.'''
 
 # Ֆունկցիան հետևյալ տեսքն ունի
 
+# 3 2 9
+
+def make_chocolate(small, big, goal):
+    if goal // 5 < big and goal % 5 < small:
+        return print(goal % 5)
+    else:
+        return -1
+
+
+make_chocolate(3, 2, 9)
+
 
 # def make_chocolate(small, big, goal):
 #     small *= 1000
