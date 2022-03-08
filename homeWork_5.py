@@ -78,52 +78,72 @@
 # և այդպես շարունակ։ Եթե խաղացողի կյանքերը սպառվեն, տեղեկացրեք նրան և խաղից դուրս եկեք։ Հաղթելու դեպքում տպեք
 # շնորհավորանք
 
-import random
+# import random
 
-text_file = open('random_words.txt', 'r')
-
-text_list = text_file.readlines()
-
-text_file.close()
-
-text_list_length = len(text_list)
-
-number_random = random.randint(0, text_list_length)
-
-text_random = text_list[number_random][:-1]
-
-print(text_random)
-
-text_length = len(text_random)
-
-correct_text_list = ['-' for i in range(text_length)]
-
-
-while text_length > 0:
-    correct_text = ' '.join(correct_text_list)
-    print(correct_text)
-    letter = input('please enter a letter.. ')
-    if letter in text_random:
-        print('you write the letter correctly')
-        for i in range(len(text_random)):
-            if text_random[i] == letter:
-                correct_text_list[i] = letter
-        if '-' not in ''.join(correct_text_list):
-            break
-    else:
-        print('you write the letter do not correctly')
-        text_length -= 1
-
-print(f'your correctly word is {" ".join(text_random)}')
-
-if text_length < 0 :
-    print('you are lose game :(')
-else:
-    print('congratulation!!!! you are winning the game :)')
+# text_file = open('random_words.txt', 'r')
+#
+# text_list = text_file.readlines()
+#
+# text_file.close()
+#
+# text_list_length = len(text_list)
+#
+# number_random = random.randint(0, text_list_length - 1)
+#
+# text_random = text_list[number_random][:-1]
+#
+# print(text_random)
+#
+# text_random_length = len(text_random)
+#
+# correct_text_list = ['-' for i in range(text_random_length)]
+#
+#
+# while text_random_length > 0:
+#     correct_text = ' '.join(correct_text_list)
+#     print(correct_text)
+#     letter = input('please enter a letter.. ')
+#     if letter in text_random:
+#         print('you write the letter correctly')
+#         for i in range(len(text_random)):
+#             if text_random[i] == letter:
+#                 correct_text_list[i] = letter
+#         if '-' not in ''.join(correct_text_list):
+#             break
+#     else:
+#         print('you write the letter do not correctly')
+#         text_random_length -= 1
+#
+# print(f'your correctly word is {" ".join(text_random)}')
+#
+# if text_random_length < 0 :
+#     print('you are lose game :(')
+# else:
+#     print('congratulation!!!! you are winning the game :)')
 
 
 # 2. Write a function that will return the longest word in the random words file from the previous exercise.
 # Գրել ֆունկցիա, որը կվերադարձնի "random_words" ֆայլի ամենաերկար բառը։
+
+# file = open('random_words.txt', 'r')
+#
+# word_list = file.readlines()
+#
+# file.close()
+#
+# word_length = 0
+#
+# for item in word_list:
+#     if len(item[:-1]) > word_length:
+#         word = item[:-1]
+#         word_length = len(item[:-1])
+#
+# print(f'The longest word is {word}')
+
+file_2 = open('question.text', 'w')
+file_2.write("about task number 3, I don't understand what is it path")
+file_2.close()
+
 
 # 3. Write a function that will take a string containing the path to a file as an argument and return its size in
 # kilobytes.
