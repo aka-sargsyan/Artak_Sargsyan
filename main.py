@@ -254,20 +254,24 @@ The crownless again shall be king.'''
 # print(current_text)
 
 
+# lst = [1, 0, -1, 8, -1]
+
+
 # sort funtion
+# print('hello')
+# lst = [1, 0, -1, 8, -1]
+# new_lst = []
+# while len(lst):
+#     min_number = lst[0]
+#     for item in lst:
+#         if item < min_number:
+#             min_number = item
+#
+#     new_lst.append(min_number)
+#     lst.remove(min_number)
+#
+#
+# print(new_lst)
 
-lst = [1, 0, -1, 8, -1]
-new_lst = []
-while len(lst):
-    min_number = lst[0]
-    for item in lst:
-        if item < min_number:
-            min_number = item
-
-    new_lst.append(min_number)
-    lst.remove(min_number)
-
-
-print(new_lst)
 
 

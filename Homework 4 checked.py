@@ -121,7 +121,7 @@ def make_chocolate(small, big, goal):
 
 
 make_chocolate(3, 2, 9)
-
+print('hello')
 
 # def make_chocolate(small, big, goal):
 #     small *= 1000
