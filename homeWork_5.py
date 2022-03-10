@@ -140,24 +140,118 @@
 #
 # print(f'The longest word is {word}')
 
-file_2 = open('question.text', 'w')
-file_2.write("about task number 3, I don't understand what is it path")
-file_2.close()
-
 
 # 3. Write a function that will take a string containing the path to a file as an argument and return its size in
 # kilobytes.
 # Գրել ֆունկցիա, որը կվերցնի սթրինգ արգումենտ։ Սթրինգը պետք է լինի որոշակի ֆայլի path-ը։ Ապա վերադարձնել այդ ֆայլի
 # չափսերը կիլոբայթերով։ Հուշում՝ օգտվել os մոդուլից:
 
+# import os
+
+# first version with string ***start***
+
+# def size_file_kb(path, kilobyte=True):
+#
+#     str_path = str(os.stat(path))
+
+#     index_str_path_size = str_path.index('st_size')
+#     str_path = str_path[index_str_path_size + 8:]
+#     index_str_path_size = str_path.index(',')
+#     str_path = str_path[:index_str_path_size]
+#     size_kb = int(str_path)
+
+#     if kilobyte:
+#         size_kb = size_kb / 1000
+#     return size_kb
+#
+# print(size_file_kb('random_words.txt', kilobyte=True))
+
+# first version with string ***end***
+
+# first version with list ***start***
+
+# def size_file_kb(path, kilobyte=True):
+#
+#     str_path = list(os.stat(path))
+#
+#     size_kb = str_path[6]
+#     if kilobyte:
+#         size_kb = size_kb / 1000
+#     return size_kb
+#
+# print(size_file_kb('random_words.txt', kilobyte=True))
+
+# first version with list ***end***
+
+
 # 4. Create a random number generator without using random module. The implementation is up to you. You may use
 # current timestamp as a random seed.
 # Գրել ֆունկցիա, որը կվերադարձնի պատահական թիվ։ Պատահական թվերի գեներատոր պարունակող մոդուլ չօգտագործել։ Իմպլեմենտացիան
 # կախված է ձեզնից։ Մտածեք որոշակի ալգորիթմ և ըստ դրա գեներացրեք թիվ։ Կարող եք օգտագործել մեր անցած seed-ի գաղափարը։
 
+# from time import time
+#
+# def generat_random_number(numbers_digits):
+#     """
+#         numbers_digits number of digits to generate
+#         you can give numbers 0 to 6 [0; 6]
+#     """
+#     if numbers_digits < 0 or numbers_digits > 6:
+#         numbers_digits = 6
+#
+#
+#     numbers_random = time() / 3
+#     str_random = str(numbers_random)
+#     str_random_index = str_random.index('.')
+#     str_random = str_random[str_random_index + 1:str_random_index + 1 + numbers_digits]
+#
+#     return int(str_random)
+#
+#
+# print(generat_random_number(3))
+
+
+
 # 5. Create a file and put your shopping list in it. The file must start with current day's date.
 # Ստեղծել ֆայլ, որը կպահի ձեր գնումների ցուցակը (ինչ ապրանք։ քանի հատ)։ Ֆայլը պետք է սկսվի տվյալ օրվա ամսաթվով։
+
+# import datetime
+#
+# today = str(datetime.date.today())
+#
+# shopping_list = {'apple': 30, 'banana': 15, 'bread': 15}
+#
+# file = open('shoppin_list.txt', 'w')
+#
+# file.write(today)
+# file.write('\n' * 3)
+#
+# for keys, value in shopping_list.items():
+#     file.write(f'{keys}-------{value}\n')
+#
+# file.close()
+
+
 
 # 6. Create a function that will take two datetime objects as parameters and return the difference in days between
 # these dates.
 # Գրել ֆունկիա, որը կվերցնի երկու datetime տիպի պարամետրեր և կվերադարձնի այդ ամսաթվերի միջև տարբերությունը օրերով։
+import datetime
+
+
+def difference_between_days(date_time1, date_time2):
+    days = abs(date_time1 - date_time2)
+    return days
+
+
+def enter_day():
+    year = int(input('please enter the year  '))
+    month = int(input('please enter the month  '))
+    day = int(input('please enter the day  '))
+
+    return datetime.datetime(year, month, day)
+
+date1 = enter_day()
+date2 = enter_day()
+
+print(difference_between_days(date1, date2).days)
