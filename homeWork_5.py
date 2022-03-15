@@ -236,22 +236,24 @@
 # 6. Create a function that will take two datetime objects as parameters and return the difference in days between
 # these dates.
 # Գրել ֆունկիա, որը կվերցնի երկու datetime տիպի պարամետրեր և կվերադարձնի այդ ամսաթվերի միջև տարբերությունը օրերով։
-import datetime
+# import datetime
+#
+#
+# def difference_between_days(date_time1, date_time2):
+#     days = abs(date_time1 - date_time2)
+#     return days
+#
+#
+# def enter_day():
+#     year = int(input('please enter the year  '))
+#     month = int(input('please enter the month  '))
+#     day = int(input('please enter the day  '))
+#
+#     return datetime.datetime(year, month, day)
+#
+# date1 = enter_day()
+# date2 = enter_day()
+#
+# print(difference_between_days(date1, date2).days)
 
 
-def difference_between_days(date_time1, date_time2):
-    days = abs(date_time1 - date_time2)
-    return days
-
-
-def enter_day():
-    year = int(input('please enter the year  '))
-    month = int(input('please enter the month  '))
-    day = int(input('please enter the day  '))
-
-    return datetime.datetime(year, month, day)
-
-date1 = enter_day()
-date2 = enter_day()
-
-print(difference_between_days(date1, date2).days)
