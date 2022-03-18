@@ -29,7 +29,7 @@
 #         self.div = number_1 / number_2
 #
 #
-# calc = Calculator(7)
+# calc = Calculator(7, 6)
 #
 # print(f'calculate numbers with add {calc.add}')
 # print(f'calculate numbers with sub {calc.sub}')
@@ -123,6 +123,33 @@
 # կենդանին։ Ապա ստեղծել Bird և Feline կլասեր, որոնք ժառանգում են Animal-ից։ Animal-ի մեթոդները իմպլեմենտացրեք
 # այդ կլասերի մեջ, այնպես, որ եթե կատուն փորձի թռչել, կոնսոլում տպվի, որ նա չի կարող թռչել։ Իսկ եթե թռչնի վրա
 # կիրառենք walk() մեթոդը, նա ասի, որ ալարում է և միայն կարող է թռչել։
+
+class Animal:
+    def make_noise(self, noise):
+        print(noise)
+
+    def walk(self, walk):
+        print('walking')
+
+    def fly(self):
+        print('flying')
+
+class Bird(Animal):
+    def walk(self):
+        print('only wants to fly as it is too lazy to walk')
+
+class Feline(Animal):
+    def fly(self):
+        print('cat do not fly')
+
+chicken = Bird()
+chicken.walk()
+chicken.make_noise('muuu')
+
+cat = Feline()
+cat.fly()
+
+
 
 # 3. Create a class called Shape. Define methods to calculate the shape's perimeter and the area.
 # Ստեղծել Shape անունով կլաս։ Սահմանել մեթոդներ, սակայն չիմպլեմենտացնել (մեթոդի մեջ պարզապես գրել pass) երկու մեթոդ,
