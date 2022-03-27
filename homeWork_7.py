@@ -1,4 +1,5 @@
 """ Dunder methods and exceptions """
+import random
 
 """ Ուշադրությու՛ն։ Ցանկացած տեղ, եթե ցանկանում եք exception raise անել, ստեղծեք ձեր սեփական exception կլասերը և
  աշխատեք դրանց հետ։ """
@@ -74,29 +75,33 @@
 #    d) Իմպլեմենտ արեք նաև __str__ մեթոդը։ Երբ մեր օբյեկտները սթրինգ դարձնենք, կուզենք տեսնել դրանց արժեքն ու միավորը։
 
 class Length:
-    name_type = {'km': 1000, 'yard' : 0.9144, 'mile': 1609.34}
+    name_type = {'km': 1000, 'yard' : 0.9144, 'mile': 1609.34, 'm': 1}
 
     def __init__(self, length, length_type):
         self.length_type = length_type
         self.length = length
+        self.meter = None
 
     def __add__(self, other):
         for key, value in self.name_type.items():
             if self.length_type == key:
-                self.length = value * self.length
-                break
-
-        for key, value in other.name_type.items():
+                self.meter = value * self.length
             if other.length_type == key:
-                other.length = value * other.length
-                self.other = key
-                break
+                other.meter = value * other.length
 
-        return (self.length + other.length) / self.name_type[other.length_type]
+        measurement = self.name_type[other.length_type]
+        # for key, value in other.name_type.items():
+        #     if other.length_type == key:
+        #         other.meter = value * other.length
+        #         break
+
+        return f'{(self.meter + other.meter) / measurement} {other.length_type}'
+
+
 
     def __str__(self):
 
-        return self.length_type
+        return f'{self.length} {self.length_type}'
 
     # def converter(self, new_self):
     #     for key, value in new_self.name_type.items():
@@ -109,9 +114,10 @@ km = Length(1, 'km')
 
 yard = Length(1, 'yard')
 
+mile = Length(150, 'mile')
 
-print(str(km))
-
+print(str(km + yard))
+print(str(yard))
 
 # 3. Create an Atom class. We will have predefined atoms for it, which are C - carbon, N - nitrogen, H - hydrogen,
 # O - oxygen and P - phosphorus.
@@ -141,3 +147,59 @@ print(str(km))
 #     սթրինգային ներկայացում։
 # Եթե քիմիայի սիրահար եք, կարող եք ավելացնել հավելյալ ֆունկցիոնալություն։ Օրինակ պահել ատոմների լիցքը, մոլեկուլ
 # ստեղծելուց հաշվի առնել վալենտականությունը և այլն։
+
+
+class Atom:
+    atoms_table = {'C': 'carbon', 'N': 'nitrogen', 'H': 'hydrogen', 'O': 'oxygen', 'P': 'phosphorus'}
+
+    def __init__(self, name):
+        self.name = name
+        for key in self.atoms_table.keys():
+            if key == self.name:
+                break
+        else:
+            raise UnknownAtom
+
+    def __add__(self, other):
+        return Molecule([self.name, other.name])
+
+    def __str__(self):
+        return f'{self.name} is {self.atoms_table[self.name]}'
+
+
+class UnknownAtom(Exception):
+
+    def __init__(self, message='there are not atom in table'):
+        super().__init__(message)
+
+
+class Molecule:
+
+    def __init__(self, molecule_list):
+        self.molecule_list = molecule_list
+
+    def __add__(self, other):
+
+        def func(some_list):
+            text = ''
+            for item in some_list:
+                rand = random.randint(1, 10)
+                text += f'{item}{rand}'
+            return text
+
+        return f'{func(self.molecule_list)} + {func(other.molecule_list)}'
+
+
+# potassium = Atom('K')
+# calcium = Atom('Ci')
+
+carbon = Atom('C')
+oxygen = Atom('O')
+
+print(carbon + oxygen)
+print(oxygen)
+
+molecule_1 = Molecule(['C', 'H', 'O'])
+molecule_2 = Molecule(['CH', 'O'])
+
+print(molecule_1 + molecule_2)

@@ -1,8 +1,3 @@
 home work 7
 
-how can write function in class
-    # def converter(self, new_self):
-    #     for key, value in new_self.name_type.items():
-    #         if new_self.length_type == key:
-    #             new_self.length = value * new_self.length
-    #             break
+1.  in __add__ can I give 2 attribute?
